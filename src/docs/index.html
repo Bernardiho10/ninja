@@ -1,0 +1,131 @@
+<div class="page" data-ham-page-config='{"layout": "../default.lhtml"}'>
+  <div class="page-header">
+    <h1 class="page-title">JS SDK Documentation</h1>
+    <p class="page-subtitle">Learn how to integrate Ninja's identity verification into your web application.</p>
+  </div>
+
+  <div class="docs-layout">
+    <aside class="docs-sidebar">
+      <a href="#getting-started" class="docs-sidebar-link active">Getting Started</a>
+      <a href="#installation" class="docs-sidebar-link">Installation</a>
+      <a href="#initialization" class="docs-sidebar-link">Initialization</a>
+      <a href="#nin-verification" class="docs-sidebar-link">NIN Verification</a>
+      <a href="#api-reference" class="docs-sidebar-link">API Reference</a>
+    </aside>
+
+    <div class="docs-content">
+      <section id="getting-started">
+        <h2>Getting Started</h2>
+        <p>The Ninja JS SDK provides a simple way to integrate National Identification Number (NIN) and Bank Verification Number (BVN) validation into your client-side applications. Our SDK handles the UI, data collection, and secure submission to our verification engines.</p>
+      </section>
+
+      <section id="installation">
+        <h2>Installation</h2>
+        <p>Include the Ninja JS library in your HTML file using our high-performance CDN.</p>
+        <div class="code-block">
+          <div class="code-block-header">HTML</div>
+          <pre><code><span class="token-operator">&lt;</span><span class="token-keyword">script</span> <span class="token-property">src</span><span class="token-operator">=</span><span class="token-string">"https://cdn.ninjahub.com/sdk/v1/ninja.js"</span><span class="token-operator">&gt;</span><span class="token-operator">&lt;/</span><span class="token-keyword">script</span><span class="token-operator">&gt;</span></code></pre>
+        </div>
+      </section>
+
+      <section id="initialization">
+        <h2>Initialization</h2>
+        <p>Create a new instance of the <span class="inline-code">Ninja</span> class by passing a configuration object. You can choose to render the verification interface as a button, a link, or embed it directly into a container.</p>
+        <div class="code-block">
+          <div class="code-block-header">Javascript</div>
+          <pre><code><span class="token-keyword">const</span> <span class="token-property">ninja</span> <span class="token-operator">=</span> <span class="token-keyword">new</span> <span class="token-function">Ninja</span>({
+  <span class="token-property">apiKey</span>: <span class="token-string">"YOUR_PUBLIC_API_KEY"</span>,
+  <span class="token-property">idType</span>: <span class="token-property">Ninja</span>.<span class="token-property">IdType</span>.<span class="token-property">NIN</span>,
+  <span class="token-property">display</span>: <span class="token-string">"button"</span>,
+  <span class="token-property">targetElement</span>: <span class="token-string">"#verify-container"</span>
+});
+
+<span class="token-property">ninja</span>.<span class="token-function">render</span>();</code></pre>
+        </div>
+      </section>
+
+      <section id="nin-verification">
+        <h2>NIN Verification Example</h2>
+        <p>The following example demonstrates how to use the <span class="inline-code">onBeforeSubmit</span> callback to inject data from your own application's UI before the verification process begins.</p>
+        
+        <div class="code-block">
+          <div class="code-block-header">Example Implementation</div>
+          <pre><code><span class="token-comment">// Initialize Ninja for NIN Verification</span>
+<span class="token-keyword">var</span> <span class="token-property">ninButton</span> <span class="token-operator">=</span> <span class="token-keyword">new</span> <span class="token-function">Ninja</span>({
+    <span class="token-property">apiKey</span>: <span class="token-string">"c18aa93a-5df9-41f2-bb75-ninja"</span>,
+    <span class="token-property">idType</span>: <span class="token-property">Ninja</span>.<span class="token-property">IdType</span>.<span class="token-property">NIN</span>,
+    <span class="token-property">mode</span>: <span class="token-property">Ninja</span>.<span class="token-property">Mode</span>.<span class="token-property">VERIFY</span>,
+    <span class="token-property">display</span>: <span class="token-string">"button"</span>,
+    <span class="token-property">targetElement</span>: <span class="token-string">"#nin-button"</span>,
+    
+    <span class="token-function">onBeforeSubmit</span>: <span class="token-keyword">function</span>(<span class="token-property">input</span>) {
+        <span class="token-comment">// Collect data from your own UI before Ninja submits</span>
+        <span class="token-property">input</span>.<span class="token-property">idNumber</span> <span class="token-operator">=</span> <span class="token-string">"1234354657"</span>;
+        <span class="token-property">input</span>.<span class="token-property">firstName</span> <span class="token-operator">=</span> <span class="token-string">"James"</span>;
+        <span class="token-property">input</span>.<span class="token-property">lastName</span> <span class="token-operator">=</span> <span class="token-string">"Bond"</span>;
+        <span class="token-property">input</span>.<span class="token-property">dateOfBirth</span> <span class="token-operator">=</span> <span class="token-string">"1988-11-20"</span>;
+        
+        <span class="token-function">console</span>.<span class="token-function">log</span>(<span class="token-string">"onBeforeSubmit: injected data into input"</span>);
+        <span class="token-comment">// return false here to cancel submission if validation fails</span>
+    },
+    
+    <span class="token-function">onSuccess</span>: <span class="token-keyword">function</span>(<span class="token-property">res</span>) { 
+        <span class="token-function">console</span>.<span class="token-function">log</span>(<span class="token-string">"NIN Button succeeded: "</span> <span class="token-operator">+</span> <span class="token-property">JSON</span>.<span class="token-function">stringify</span>(<span class="token-property">res</span>)); 
+    },
+    
+    <span class="token-function">onFailure</span>: <span class="token-keyword">function</span>(<span class="token-property">res</span>) { 
+        <span class="token-function">console</span>.<span class="token-function">log</span>(<span class="token-string">"NIN Button failed: "</span> <span class="token-operator">+</span> <span class="token-property">JSON</span>.<span class="token-function">stringify</span>(<span class="token-property">res</span>)); 
+    },
+    
+    <span class="token-function">onError</span>: <span class="token-keyword">function</span>(<span class="token-property">err</span>) { 
+        <span class="token-function">console</span>.<span class="token-error">error</span>(<span class="token-string">"NIN Button error: "</span> <span class="token-operator">+</span> <span class="token-property">err</span>.<span class="token-property">message</span>); 
+    },
+});
+
+<span class="token-property">ninButton</span>.<span class="token-function">render</span>();</code></pre>
+        </div>
+      </section>
+
+      <section id="api-reference">
+        <h2>API Reference</h2>
+        <h3>Configuration Options</h3>
+        <p>The configuration object supports the following properties:</p>
+        <div class="card card-glossy">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="inline-code">apiKey</span></td>
+                  <td>String</td>
+                  <td>Your public API key retrieved from the Ninja Dashboard.</td>
+                </tr>
+                <tr>
+                  <td><span class="inline-code">idType</span></td>
+                  <td>Enum</td>
+                  <td>The type of identity to verify. Use <span class="inline-code">Ninja.IdType.NIN</span> or <span class="inline-code">Ninja.IdType.BVN</span>.</td>
+                </tr>
+                <tr>
+                  <td><span class="inline-code">mode</span></td>
+                  <td>Enum</td>
+                  <td>Verification mode. Defaults to <span class="inline-code">Ninja.Mode.VERIFY</span>.</td>
+                </tr>
+                <tr>
+                  <td><span class="inline-code">onBeforeSubmit</span></td>
+                  <td>Function</td>
+                  <td>Callback triggered before submission. Useful for data injection.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

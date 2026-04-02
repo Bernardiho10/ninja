@@ -52,7 +52,35 @@
     </div>
   </div>
 
-  <div class="card card-glossy border-destructive/20 bg-destructive/5">
+  <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="card card-glossy">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="p-2 rounded-lg bg-bou-green/10 text-bou-green">
+           <i class="ph-duotone ph-book-open text-xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg">Quick Integration</h3>
+      </div>
+      <p class="text-muted-foreground text-sm mb-6">Ready to start verifying identities? Our JS SDK makes it easy to add secure NIN and BVN validation to your website in minutes.</p>
+      <a href="/docs/" class="btn btn-primary w-full shadow-sm">
+        <i class="ph ph-arrow-right"></i> View SDK Documentation
+      </a>
+    </div>
+
+    <div class="card card-glossy">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="p-2 rounded-lg bg-primary/10 text-primary">
+           <i class="ph-duotone ph-code text-xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg">API Reference</h3>
+      </div>
+      <p class="text-muted-foreground text-sm mb-6">Looking for direct REST API integration? Explore our comprehensive endpoints for advanced server-side validation and business verification.</p>
+      <a href="/docs/#api-reference" class="btn btn-secondary w-full shadow-sm">
+        Explore API Endpoints
+      </a>
+    </div>
+  </div>
+
+  <div class="card card-glossy border-destructive/20 bg-destructive/5 mt-8">
     <h3 class="font-semibold text-lg text-error mb-2">Danger Zone</h3>
     <p class="text-muted-foreground text-sm mb-4">Revoking a key will immediately stop all API requests using that key. This action cannot be undone.</p>
     <button class="btn btn-error shadow-sm">Revoke All Keys</button>

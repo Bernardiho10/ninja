@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ninja | Professional API Dashboard</title>
+  <title>Ninja Admin | Management Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -11,17 +11,17 @@
       if (theme === 'dark') document.documentElement.classList.add('dark');
     })();
   </script>
-  <link rel="stylesheet" href="/assets/css/index.css?v=6"/>
+  <link rel="stylesheet" href="/assets/css/index.css?v=7"/>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body>
+<body class="admin-layout">
 
 <div id="app" class="app-layout">
-  <aside id="sidebar" class="sidebar kyb-pending">
+  <aside id="sidebar" class="sidebar">
   <div class="sidebar-header">
-    <a href="/" class="sidebar-logo">
-      <div class="logo-box">N</div>
-      <span class="logo-text">NINJA</span>
+    <a href="/admin/" class="sidebar-logo">
+      <div class="logo-box bg-primary text-primary-foreground">A</div>
+      <span class="logo-text">ADMIN HUB</span>
     </a>
     <div class="flex items-center gap-2">
       <!-- Desktop Toggle -->
@@ -36,59 +36,51 @@
   </div>
 
   <nav class="sidebar-nav">
-    <div class="nav-section-title">Main Menu</div>
+    <div class="nav-section-title">Management</div>
     
-    <a href="/" class="nav-item active" id="nav-home">
-      <i class="ph-duotone ph-house-line"></i>
-      <span>Dashboard</span>
+    <a href="/admin/" class="nav-item active" id="admin-nav-home">
+      <i class="ph-duotone ph-chart-pie"></i>
+      <span>Overview</span>
     </a>
     
-    <a href="/api/keys/" class="nav-item" id="nav-keys">
-      <i class="ph-duotone ph-key"></i>
-      <span>API Keys</span>
+    <a href="/admin/businesses/" class="nav-item" id="admin-nav-businesses">
+      <i class="ph-duotone ph-buildings"></i>
+      <span>Businesses</span>
     </a>
     
-    <a href="/wallet/" class="nav-item" id="nav-wallet">
-      <i class="ph-duotone ph-wallet"></i>
-      <span>Wallet</span>
+    <a href="/logs/" class="nav-item" id="admin-nav-logs">
+      <i class="ph-duotone ph-activity"></i>
+      <span>System Logs</span>
     </a>
-    
-    <a href="/kyb/" class="nav-item" id="nav-kyb">
-      <i class="ph-duotone ph-shield-check"></i>
-      <span>KYB Verification</span>
+
+    <div class="nav-section-title mt-6">Settings</div>
+    <a href="/settings/" class="nav-item" id="admin-nav-settings">
+      <i class="ph-duotone ph-gear"></i>
+      <span>Global Settings</span>
     </a>
-    
-    <a href="/logs/" class="nav-item" id="nav-logs">
-      <i class="ph-duotone ph-terminal-window"></i>
-      <span>API Logs</span>
+
+    <div class="nav-section-title mt-6">Resources</div>
+    <a href="/docs/" class="nav-item" id="admin-nav-docs">
+      <i class="ph-duotone ph-book-open"></i>
+      <span>Documentation</span>
     </a>
   </nav>
 
   <div class="sidebar-footer">
-    <a href="https://wa.me/2349000000000" target="_blank" class="nav-item support-btn" style="color: #25D366;">
-      <i class="ph-fill ph-whatsapp-logo"></i>
-      <span>WhatsApp Support</span>
-    </a>
     <a href="/auth/login.html" class="nav-item text-danger">
       <i class="ph-duotone ph-sign-out"></i>
       <span>Logout</span>
     </a>
     <div class="sidebar-footer-info">
-      <div class="sidebar-footer-links">
-        <a href="/support">Support</a>
-        <span class="footer-dot">·</span>
-        <a href="/terms">Terms</a>
-        <span class="footer-dot">·</span>
-        <a href="/privacy">Privacy</a>
-      </div>
-      <p class="sidebar-footer-copy">© 2024 Ninja. All Rights Reserved.</p>
-      <p class="sidebar-footer-built">Built by <a href="https://www.bougroup.org/" target="_blank" rel="noopener noreferrer">BOU</a></p>
+      <p class="sidebar-footer-copy">© 2024 Ninja Admin.</p>
+      <p class="sidebar-footer-built">Built by <a href="https://www.bougroup.org/" target="_blank">BOU</a></p>
     </div>
   </div>
 </aside>
 
 <!-- Backdrop for mobile -->
 <div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>
+
   
   <div class="main-wrapper">
     <header class="header">
@@ -125,16 +117,17 @@
 
     
     <main class="main-content">
-      <div class="container">
+      <div class="container px-6">
         <div class="page">
   <div class="page-header flex justify-between items-center">
     <div>
-      <h1 class="page-title"><i class="ph-duotone ph-list-bullets"></i> API Request Logs</h1>
-      <p class="page-subtitle">Track every request made with your API keys.</p>
+      <h1 class="page-title"><i class="ph-duotone ph-list-bullets"></i> System-Wide API Logs</h1>
+      <p class="page-subtitle">Monitoring real-time API traffic across all business accounts.</p>
     </div>
     <div class="flex gap-2 items-center">
-       <button class="btn btn-small">
-         <i class="ph-duotone ph-download-simple"></i> Download CSV
+       <button class="btn btn-secondary shadow-sm">
+         <i class="ph-duotone ph-download-simple"></i>
+         <span>Export CSV</span>
        </button>
     </div>
   </div>
@@ -145,24 +138,27 @@
         <thead>
           <tr>
             <th>Timestamp</th>
+            <th>Business</th>
             <th>Request ID</th>
             <th>Path</th>
             <th>Method</th>
             <th>Status</th>
             <th>Charge (₦)</th>
           </tr>
-            <tr class="filter-row">
-              <th><input type="date" class="column-filter" data-column="0"/></th>
-            <th><input type="text" class="column-filter" data-column="1" placeholder="Filter ID..."/></th>
-            <th><input type="text" class="column-filter" data-column="2" placeholder="Filter Path..."/></th>
-            <th><input type="text" class="column-filter" data-column="3" placeholder="Filter Method..."/></th>
-            <th><input type="text" class="column-filter" data-column="4" placeholder="Filter Status..."/></th>
-            <th><input type="number" class="column-filter" data-column="5" step="0.01" placeholder="0.00"/></th>
+          <tr class="filter-row">
+            <th><input type="text" class="column-filter form-control text-xs" data-column="0" placeholder="Filter date..."/></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="1" placeholder="Filter business..."/></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="2" placeholder="Filter ID..."/></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="3" placeholder="Filter Path..."/></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="4" placeholder="Filter Method..."/></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="5" placeholder="Filter Status..."/></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="6" placeholder="Filter Price..."/></th>
           </tr>
         </thead>
         <tbody id="log-table-body">
           <tr>
-            <td class="text-xs text-muted-foreground">2024-04-01 22:15:30</td>
+            <td class="text-xs text-muted-foreground">2024-04-01 22:15:20</td>
+            <td class="font-medium text-xs">Acme Corp</td>
             <td><code class="text-primary font-medium">#rid_7A92C</code></td>
             <td><code class="text-silver">/v1/verify/identity</code></td>
             <td class="font-semibold text-xs">POST</td>
@@ -170,7 +166,8 @@
             <td class="font-semibold text-right">100.00</td>
           </tr>
           <tr>
-            <td class="text-xs text-muted-foreground">2024-04-01 21:05:12</td>
+            <td class="text-xs text-muted-foreground">2024-04-01 22:14:55</td>
+            <td class="font-medium text-xs">Globex Inc.</td>
             <td><code class="text-primary font-medium">#rid_8B02E</code></td>
             <td><code class="text-silver">/v1/payment/initiate</code></td>
             <td class="font-semibold text-xs">POST</td>
@@ -178,7 +175,8 @@
             <td class="font-semibold text-right">100.00</td>
           </tr>
           <tr>
-            <td class="text-xs text-muted-foreground">2024-04-01 20:30:45</td>
+            <td class="text-xs text-muted-foreground">2024-04-01 21:05:12</td>
+            <td class="font-medium text-xs">Acme Corp</td>
             <td><code class="text-primary font-medium">#rid_1F04A</code></td>
             <td><code class="text-silver">/v1/auth/token</code></td>
             <td class="font-semibold text-xs">GET</td>
@@ -186,7 +184,8 @@
             <td class="font-semibold text-right">0.00</td>
           </tr>
           <tr>
-            <td class="text-xs text-muted-foreground">2024-04-01 19:45:20</td>
+            <td class="text-xs text-muted-foreground">2024-04-01 20:30:45</td>
+            <td class="font-medium text-xs">FinStack Ltd</td>
             <td><code class="text-primary font-medium">#rid_3C28D</code></td>
             <td><code class="text-silver">/v1/lookup/phone</code></td>
             <td class="font-semibold text-xs">GET</td>
@@ -194,25 +193,84 @@
             <td class="font-semibold text-right">100.00</td>
           </tr>
           <tr>
-            <td class="text-xs text-muted-foreground">2024-04-01 18:30:10</td>
+            <td class="text-xs text-muted-foreground">2024-04-01 19:42:10</td>
+            <td class="font-medium text-xs">Acme Corp</td>
             <td><code class="text-primary font-medium">#rid_9D12F</code></td>
             <td><code class="text-silver">/v1/verify/nin</code></td>
             <td class="font-semibold text-xs">POST</td>
             <td><span class="badge badge-success">200 OK</span></td>
             <td class="font-semibold text-right">100.00</td>
           </tr>
+          <tr>
+             <td class="text-xs text-muted-foreground">2024-04-01 19:35:10</td>
+             <td class="font-medium text-xs">NovaPay</td>
+             <td><code class="text-primary font-medium">#rid_AF012</code></td>
+             <td><code class="text-silver">/v1/transaction/list</code></td>
+             <td class="font-semibold text-xs">GET</td>
+             <td><span class="badge badge-success">200 OK</span></td>
+             <td class="font-semibold text-right">50.00</td>
+           </tr>
         </tbody>
       </table>
     </div>
     <div class="pagination mt-4 flex justify-between items-center">
-       <div class="text-slate small">Showing 1-4 of 1,240 requests</div>
+       <div class="text-slate small" id="log-count">Showing 1-6 of 24,102 requests</div>
        <div class="flex gap-2">
-          <button class="btn btn-small" disabled=""><i class="ph-bold ph-caret-left"></i> Prev</button>
-          <button class="btn btn-small">Next <i class="ph-bold ph-caret-right"></i></button>
+          <button class="btn btn-secondary btn-sm" disabled=""><i class="ph-bold ph-caret-left"></i> Prev</button>
+          <button class="btn btn-secondary btn-sm">Next <i class="ph-bold ph-caret-right"></i></button>
        </div>
     </div>
   </div>
 </div>
+
+<script>
+  // Simple table filtration logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const filters = document.querySelectorAll('.column-filter');
+    const tableBody = document.getElementById('log-table-body');
+    const rows = tableBody.getElementsByTagName('tr');
+
+    filters.forEach(filter => {
+      filter.addEventListener('input', () => {
+        const activeFilters = Array.from(filters).map(f => ({
+          column: parseInt(f.dataset.column),
+          value: f.value.toLowerCase()
+        })).filter(f => f.value !== '');
+
+        for (let i = 0; i < rows.length; i++) {
+          const cells = rows[i].getElementsByTagName('td');
+          let showRow = true;
+
+          for (const f of activeFilters) {
+            const cellText = cells[f.column].textContent.toLowerCase() || cells[f.column].innerText.toLowerCase();
+            if (cellText.indexOf(f.value) === -1) {
+              showRow = false;
+              break;
+            }
+          }
+
+          rows[i].style.display = showRow ? '' : 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .filter-row th {
+    padding: 0.5rem !important;
+    background: hsl(var(--secondary) / 0.8) !important;
+  }
+  .column-filter {
+    width: 100%;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    height: 28px !important;
+    background: hsl(var(--background)) !important;
+  }
+  .filter-row th:first-child { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+  .filter-row th:last-child { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+</style>
 
       </div>
     </main>
@@ -230,7 +288,7 @@
       </ul>
     </div>
     <div class="footer-signature">
-      <p style="color: #10A500;">Built by <a href="https://www.bougroup.org/technology.html" target="_blank" rel="noopener noreferrer">BOU</a>
+      <p style="color: #10A500;"><a href="https://www.bougroup.org/technology.html" target="_blank" rel="noopener noreferrer">NINJA is a product of BOU</a>
       </p>
     </div>
   </div>
@@ -239,19 +297,29 @@
 <!-- Bottom Navigation for Mobile -->
 <div class="bottom-nav-container">
   <nav class="bottom-nav">
-    <ul class="flex justify-between w-full">
-      <li><a href="/"><i class="ph-duotone ph-house-line"></i><span>Home</span></a></li>
+    <!-- User Bottom Nav -->
+    <ul class="user-nav-list flex justify-between w-full">
+      <li><a href="/"><i class="ph-duotone ph-house-line"></i><span>Dashboard</span></a></li>
       <li><a href="/wallet/"><i class="ph-duotone ph-wallet"></i><span>Wallet</span></a></li>
-      <li><a href="/api/keys/"><i class="ph-duotone ph-key"></i><span>Keys</span></a></li>
-      <li><a href="/logs/"><i class="ph-duotone ph-terminal-window"></i><span>Logs</span></a></li>
+      <li><a href="/api/keys/"><i class="ph-duotone ph-key"></i><span>API Keys</span></a></li>
+      <li><a href="/docs/"><i class="ph-duotone ph-book-open"></i><span>Docs</span></a></li>
       <li><a href="/kyb/"><i class="ph-duotone ph-shield-check"></i><span>KYB</span></a></li>
+    </ul>
+
+    <!-- Admin Bottom Nav -->
+    <ul class="admin-nav-list flex justify-between w-full">
+      <li><a href="/admin/"><i class="ph-duotone ph-chart-pie"></i><span>Overview</span></a></li>
+      <li><a href="/admin/businesses/"><i class="ph-duotone ph-buildings"></i><span>Businesses</span></a></li>
+      <li><a href="/logs/"><i class="ph-duotone ph-activity"></i><span>Logs</span></a></li>
+      <li><a href="/docs/"><i class="ph-duotone ph-book-open"></i><span>Docs</span></a></li>
+      <li><a href="/settings/"><i class="ph-duotone ph-gear"></i><span>Settings</span></a></li>
     </ul>
   </nav>
 </div>
   </div>
 </div>
 
-<script src="/assets/js/index.js?v=6" defer=""></script>
+<script src="/assets/js/index.js?v=7" defer=""></script>
 
 
 </body></html>

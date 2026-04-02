@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ninja | Professional API Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('ninja-theme') || 'dark';
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/index.css?v=6"/>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="user-layout">
+
+<div id="app" class="app-layout">
+  <aside id="sidebar" class="sidebar kyb-pending">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="logo-box">N</div>
+      <span class="logo-text">NINJA</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <!-- Desktop Toggle -->
+      <button id="sidebar-toggle" class="collapse-toggle desktop-only" title="Toggle Sidebar">
+        <i class="ph-bold ph-caret-left"></i>
+      </button>
+      <!-- Close button for mobile -->
+      <button id="sidebar-close" class="btn-icon mobile-only" title="Close Menu">
+        <i class="ph-duotone ph-x"></i>
+      </button>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Main Menu</div>
+    
+    <a href="/" class="nav-item active" id="nav-home">
+      <i class="ph-duotone ph-house-line"></i>
+      <span>Dashboard</span>
+    </a>
+    
+    <a href="/api/keys/" class="nav-item" id="nav-keys">
+      <i class="ph-duotone ph-key"></i>
+      <span>API Keys</span>
+    </a>
+    
+    <a href="/wallet/" class="nav-item" id="nav-wallet">
+      <i class="ph-duotone ph-wallet"></i>
+      <span>Wallet</span>
+    </a>
+    
+    <a href="/kyb/" class="nav-item" id="nav-kyb">
+      <i class="ph-duotone ph-shield-check"></i>
+      <span>KYB Verification</span>
+    </a>
+    
+    <a href="/logs/" class="nav-item" id="nav-logs">
+      <i class="ph-duotone ph-terminal-window"></i>
+      <span>API Logs</span>
+    </a>
+
+    <a href="/docs/" class="nav-item" id="nav-docs">
+      <i class="ph-duotone ph-book-open"></i>
+      <span>Documentation</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="https://wa.me/2349000000000" target="_blank" class="nav-item support-btn" style="color: #25D366;">
+      <i class="ph-fill ph-whatsapp-logo"></i>
+      <span>WhatsApp Support</span>
+    </a>
+    <a href="/auth/login.html" class="nav-item text-danger">
+      <i class="ph-duotone ph-sign-out"></i>
+      <span>Logout</span>
+    </a>
+    <div class="sidebar-footer-info">
+      <div class="sidebar-footer-links">
+        <a href="/support">Support</a>
+        <span class="footer-dot">·</span>
+        <a href="/terms">Terms</a>
+        <span class="footer-dot">·</span>
+        <a href="/privacy">Privacy</a>
+      </div>
+      <p class="sidebar-footer-copy">© 2024 Ninja. All Rights Reserved.</p>
+      <p class="sidebar-footer-built">Built by <a href="https://www.bougroup.org/" target="_blank" rel="noopener noreferrer">BOU</a></p>
+    </div>
+  </div>
+</aside>
+
+<!-- Backdrop for mobile -->
+<div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>
+  
+  <div class="main-wrapper">
+    <header class="header">
+  <div class="header-container">
+    <div class="header-left">
+      <!-- Mobile hamburger toggle -->
+      <button id="mobile-menu-toggle" class="btn-icon mobile-only" title="Menu">
+        <i class="ph-duotone ph-list text-lg"></i>
+      </button>
+      
+      <!-- Mobile Logo -->
+      <a href="/" class="header-logo mobile-only">
+        <div class="logo-box">N</div>
+        <span class="logo-text">NINJA</span>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="btn-icon" title="Toggle Theme">
+        <i class="ph-duotone ph-moon text-lg dark-hidden"></i>
+        <i class="ph-duotone ph-sun text-lg light-hidden"></i>
+      </button>
+
+      <div class="user-profile">
+        <div class="user-info desktop-only">
+          <span class="user-name">Bernardiho</span>
+          <span class="user-role">Admin Account</span>
+        </div>
+        <div class="user-avatar-circle">BH</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+    
+    <main class="main-content">
+      <div class="container">
+        <div class="page">
+  <div class="page-header">
+    <h1 class="page-title">JS SDK Documentation</h1>
+    <p class="page-subtitle">Learn how to integrate Ninja&#39;s identity verification into your web application.</p>
+  </div>
+
+  <div class="docs-layout">
+    <aside class="docs-sidebar">
+      <a href="#getting-started" class="docs-sidebar-link active">Getting Started</a>
+      <a href="#installation" class="docs-sidebar-link">Installation</a>
+      <a href="#initialization" class="docs-sidebar-link">Initialization</a>
+      <a href="#nin-verification" class="docs-sidebar-link">NIN Verification</a>
+      <a href="#api-reference" class="docs-sidebar-link">API Reference</a>
+    </aside>
+
+    <div class="docs-content">
+      <section id="getting-started">
+        <h2>Getting Started</h2>
+        <p>The Ninja JS SDK provides a simple way to integrate National Identification Number (NIN) and Bank Verification Number (BVN) validation into your client-side applications. Our SDK handles the UI, data collection, and secure submission to our verification engines.</p>
+      </section>
+
+      <section id="installation">
+        <h2>Installation</h2>
+        <p>Include the Ninja JS library in your HTML file using our high-performance CDN.</p>
+        <div class="code-block">
+          <div class="code-block-header">HTML</div>
+          <pre><code><span class="token-operator">&lt;</span><span class="token-keyword">script</span> <span class="token-property">src</span><span class="token-operator">=</span><span class="token-string">&#34;https://cdn.ninjahub.com/sdk/v1/ninja.js&#34;</span><span class="token-operator">&gt;</span><span class="token-operator">&lt;/</span><span class="token-keyword">script</span><span class="token-operator">&gt;</span></code></pre>
+        </div>
+      </section>
+
+      <section id="initialization">
+        <h2>Initialization</h2>
+        <p>Create a new instance of the <span class="inline-code">Ninja</span> class by passing a configuration object. You can choose to render the verification interface as a button, a link, or embed it directly into a container.</p>
+        <div class="code-block">
+          <div class="code-block-header">Javascript</div>
+          <pre><code><span class="token-keyword">const</span> <span class="token-property">ninja</span> <span class="token-operator">=</span> <span class="token-keyword">new</span> <span class="token-function">Ninja</span>({
+  <span class="token-property">apiKey</span>: <span class="token-string">&#34;YOUR_PUBLIC_API_KEY&#34;</span>,
+  <span class="token-property">idType</span>: <span class="token-property">Ninja</span>.<span class="token-property">IdType</span>.<span class="token-property">NIN</span>,
+  <span class="token-property">display</span>: <span class="token-string">&#34;button&#34;</span>,
+  <span class="token-property">targetElement</span>: <span class="token-string">&#34;#verify-container&#34;</span>
+});
+
+<span class="token-property">ninja</span>.<span class="token-function">render</span>();</code></pre>
+        </div>
+      </section>
+
+      <section id="nin-verification">
+        <h2>NIN Verification Example</h2>
+        <p>The following example demonstrates how to use the <span class="inline-code">onBeforeSubmit</span> callback to inject data from your own application&#39;s UI before the verification process begins.</p>
+        
+        <div class="code-block">
+          <div class="code-block-header">Example Implementation</div>
+          <pre><code><span class="token-comment">// Initialize Ninja for NIN Verification</span>
+<span class="token-keyword">var</span> <span class="token-property">ninButton</span> <span class="token-operator">=</span> <span class="token-keyword">new</span> <span class="token-function">Ninja</span>({
+    <span class="token-property">apiKey</span>: <span class="token-string">&#34;c18aa93a-5df9-41f2-bb75-ninja&#34;</span>,
+    <span class="token-property">idType</span>: <span class="token-property">Ninja</span>.<span class="token-property">IdType</span>.<span class="token-property">NIN</span>,
+    <span class="token-property">mode</span>: <span class="token-property">Ninja</span>.<span class="token-property">Mode</span>.<span class="token-property">VERIFY</span>,
+    <span class="token-property">display</span>: <span class="token-string">&#34;button&#34;</span>,
+    <span class="token-property">targetElement</span>: <span class="token-string">&#34;#nin-button&#34;</span>,
+    
+    <span class="token-function">onBeforeSubmit</span>: <span class="token-keyword">function</span>(<span class="token-property">input</span>) {
+        <span class="token-comment">// Collect data from your own UI before Ninja submits</span>
+        <span class="token-property">input</span>.<span class="token-property">idNumber</span> <span class="token-operator">=</span> <span class="token-string">&#34;1234354657&#34;</span>;
+        <span class="token-property">input</span>.<span class="token-property">firstName</span> <span class="token-operator">=</span> <span class="token-string">&#34;James&#34;</span>;
+        <span class="token-property">input</span>.<span class="token-property">lastName</span> <span class="token-operator">=</span> <span class="token-string">&#34;Bond&#34;</span>;
+        <span class="token-property">input</span>.<span class="token-property">dateOfBirth</span> <span class="token-operator">=</span> <span class="token-string">&#34;1988-11-20&#34;</span>;
+        
+        <span class="token-function">console</span>.<span class="token-function">log</span>(<span class="token-string">&#34;onBeforeSubmit: injected data into input&#34;</span>);
+        <span class="token-comment">// return false here to cancel submission if validation fails</span>
+    },
+    
+    <span class="token-function">onSuccess</span>: <span class="token-keyword">function</span>(<span class="token-property">res</span>) { 
+        <span class="token-function">console</span>.<span class="token-function">log</span>(<span class="token-string">&#34;NIN Button succeeded: &#34;</span> <span class="token-operator">+</span> <span class="token-property">JSON</span>.<span class="token-function">stringify</span>(<span class="token-property">res</span>)); 
+    },
+    
+    <span class="token-function">onFailure</span>: <span class="token-keyword">function</span>(<span class="token-property">res</span>) { 
+        <span class="token-function">console</span>.<span class="token-function">log</span>(<span class="token-string">&#34;NIN Button failed: &#34;</span> <span class="token-operator">+</span> <span class="token-property">JSON</span>.<span class="token-function">stringify</span>(<span class="token-property">res</span>)); 
+    },
+    
+    <span class="token-function">onError</span>: <span class="token-keyword">function</span>(<span class="token-property">err</span>) { 
+        <span class="token-function">console</span>.<span class="token-error">error</span>(<span class="token-string">&#34;NIN Button error: &#34;</span> <span class="token-operator">+</span> <span class="token-property">err</span>.<span class="token-property">message</span>); 
+    },
+});
+
+<span class="token-property">ninButton</span>.<span class="token-function">render</span>();</code></pre>
+        </div>
+      </section>
+
+      <section id="api-reference">
+        <h2>API Reference</h2>
+        <h3>Configuration Options</h3>
+        <p>The configuration object supports the following properties:</p>
+        <div class="card card-glossy">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="inline-code">apiKey</span></td>
+                  <td>String</td>
+                  <td>Your public API key retrieved from the Ninja Dashboard.</td>
+                </tr>
+                <tr>
+                  <td><span class="inline-code">idType</span></td>
+                  <td>Enum</td>
+                  <td>The type of identity to verify. Use <span class="inline-code">Ninja.IdType.NIN</span> or <span class="inline-code">Ninja.IdType.BVN</span>.</td>
+                </tr>
+                <tr>
+                  <td><span class="inline-code">mode</span></td>
+                  <td>Enum</td>
+                  <td>Verification mode. Defaults to <span class="inline-code">Ninja.Mode.VERIFY</span>.</td>
+                </tr>
+                <tr>
+                  <td><span class="inline-code">onBeforeSubmit</span></td>
+                  <td>Function</td>
+                  <td>Callback triggered before submission. Useful for data injection.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+  <div class="container flex justify-between items-center column-mobile">
+    <div class="footer-brand">
+      <p>© 2024 Ninja. All Rights Reserved.</p>
+    </div>
+    <div class="footer-links">
+      <ul class="flex gap-4">
+        <li><a href="/support">Support</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="footer-signature">
+      <p style="color: #10A500;"><a href="https://www.bougroup.org/technology.html" target="_blank" rel="noopener noreferrer">NINJA is a product of BOU</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bottom Navigation for Mobile -->
+<div class="bottom-nav-container">
+  <nav class="bottom-nav">
+    <!-- User Bottom Nav -->
+    <ul class="user-nav-list flex justify-between w-full">
+      <li><a href="/"><i class="ph-duotone ph-house-line"></i><span>Dashboard</span></a></li>
+      <li><a href="/wallet/"><i class="ph-duotone ph-wallet"></i><span>Wallet</span></a></li>
+      <li><a href="/api/keys/"><i class="ph-duotone ph-key"></i><span>API Keys</span></a></li>
+      <li><a href="/docs/"><i class="ph-duotone ph-book-open"></i><span>Docs</span></a></li>
+      <li><a href="/kyb/"><i class="ph-duotone ph-shield-check"></i><span>KYB</span></a></li>
+    </ul>
+
+    <!-- Admin Bottom Nav -->
+    <ul class="admin-nav-list flex justify-between w-full">
+      <li><a href="/admin/"><i class="ph-duotone ph-chart-pie"></i><span>Overview</span></a></li>
+      <li><a href="/admin/businesses/"><i class="ph-duotone ph-buildings"></i><span>Businesses</span></a></li>
+      <li><a href="/logs/"><i class="ph-duotone ph-activity"></i><span>Logs</span></a></li>
+      <li><a href="/docs/"><i class="ph-duotone ph-book-open"></i><span>Docs</span></a></li>
+      <li><a href="/settings/"><i class="ph-duotone ph-gear"></i><span>Settings</span></a></li>
+    </ul>
+  </nav>
+</div>
+  </div>
+</div>
+
+<script src="/assets/js/index.js?v=6" defer=""></script>
+
+
+</body></html>

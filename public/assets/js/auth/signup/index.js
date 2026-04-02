@@ -7,7 +7,7 @@ if (signupForm) {
         e.preventDefault();
         
         // Form Data capture (simulated)
-        document.getElementById('username').value;
+        document.getElementById('email').value;
         document.getElementById('business-name').value;
         
         // Visual feedback: Start loading state
