@@ -1,0 +1,53 @@
+<div class="page" data-ham-page-config='{"layout": "../../admin.lhtml"}'>
+  <div class="page-header">
+    <h1 class="page-title"><i class="ph-duotone ph-book-open"></i> Management Hub Documentation</h1>
+    <p class="page-subtitle">Administrative guide for overseeing the Ninja identification platform.</p>
+  </div>
+
+  <div class="docs-layout">
+    <aside class="docs-sidebar">
+      <a href="#overview" class="docs-sidebar-link active">Hub Overview</a>
+      <a href="#businesses" class="docs-sidebar-link">Managing Businesses</a>
+      <a href="#logs" class="docs-sidebar-link">System Monitoring</a>
+      <a href="#settings" class="docs-sidebar-link">Global Settings</a>
+    </aside>
+
+    <div class="docs-content">
+      <section id="overview">
+        <h2>Hub Overview</h2>
+        <p>The Admin Management Hub is the nerve center of the Ninja platform. From here, you can oversee all active business integrations, monitor real-time API traffic, and manage platform-wide configurations.</p>
+        <div class="alert alert-info">
+          <i class="ph-duotone ph-info"></i>
+          <div>
+            <strong>Note:</strong> All actions taken in the Management Hub are logged for security auditing purposes.
+          </div>
+        </div>
+      </section>
+
+      <section id="businesses">
+        <h2>Managing Businesses</h2>
+        <p>The <strong>Businesses</strong> section allows you to view and manage all organizations using the Ninja SDK. Each business record includes:</p>
+        <ul>
+            <li><strong>Verification Status</strong>: Current KYB level of the organization.</li>
+            <li><strong>API Access</strong>: Toggle to enable or disable production keys.</li>
+            <li><strong>Usage Metrics</strong>: Aggregate volume of identity lookups.</li>
+        </ul>
+      </section>
+
+      <section id="logs">
+        <h2>System Monitoring</h2>
+        <p>Admins have access to the <strong>System-Wide Logs</strong>, providing a granular view of every request processed by the Ninja engine. This is essential for troubleshooting issues, identifying malicious patterns, and verifying billing data.</p>
+      </section>
+
+      <section id="settings">
+        <h2>Global Settings</h2>
+        <p>Configure core platform behavior, including:</p>
+        <ul>
+            <li><strong>Service Fees</strong>: Adjust the charge per successful verification.</li>
+            <li><strong>Maintenance Mode</strong>: Globally toggle API availability.</li>
+            <li><strong>Support Tiers</strong>: Manage helpdesk routing for different business types.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>

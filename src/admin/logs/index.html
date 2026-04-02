@@ -19,6 +19,7 @@
           <tr>
             <th>Timestamp</th>
             <th>Business</th>
+            <th>API Key</th>
             <th>Request ID</th>
             <th>Path</th>
             <th>Method</th>
@@ -28,17 +29,19 @@
           <tr class="filter-row">
             <th><input type="text" class="column-filter form-control text-xs" data-column="0" placeholder="Filter date..."></th>
             <th><input type="text" class="column-filter form-control text-xs" data-column="1" placeholder="Filter business..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="2" placeholder="Filter ID..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="3" placeholder="Filter Path..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="4" placeholder="Filter Method..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="5" placeholder="Filter Status..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="6" placeholder="Filter Price..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="2" placeholder="Filter Key Name..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="3" placeholder="Filter ID..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="4" placeholder="Filter Path..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="5" placeholder="Filter Method..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="6" placeholder="Filter Status..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="7" placeholder="Filter Price..."></th>
           </tr>
         </thead>
         <tbody id="log-table-body">
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 22:15:20</td>
             <td class="font-medium text-xs">Acme Corp</td>
+            <td class="text-xs font-semibold text-primary">Primary Production Key</td>
             <td><code class="text-primary font-medium">#rid_7A92C</code></td>
             <td><code class="text-silver">/v1/verify/identity</code></td>
             <td class="font-semibold text-xs">POST</td>
@@ -48,6 +51,7 @@
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 22:14:55</td>
             <td class="font-medium text-xs">Globex Inc.</td>
+            <td class="text-xs font-semibold text-primary">Mobile App Integration</td>
             <td><code class="text-primary font-medium">#rid_8B02E</code></td>
             <td><code class="text-silver">/v1/payment/initiate</code></td>
             <td class="font-semibold text-xs">POST</td>
@@ -57,6 +61,7 @@
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 21:05:12</td>
             <td class="font-medium text-xs">Acme Corp</td>
+            <td class="text-xs font-semibold text-primary">Legacy Web Dashboard</td>
             <td><code class="text-primary font-medium">#rid_1F04A</code></td>
             <td><code class="text-silver">/v1/auth/token</code></td>
             <td class="font-semibold text-xs">GET</td>
@@ -66,6 +71,7 @@
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 20:30:45</td>
             <td class="font-medium text-xs">FinStack Ltd</td>
+            <td class="text-xs font-semibold text-primary">Primary Production Key</td>
             <td><code class="text-primary font-medium">#rid_3C28D</code></td>
             <td><code class="text-silver">/v1/lookup/phone</code></td>
             <td class="font-semibold text-xs">GET</td>
@@ -75,6 +81,7 @@
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 19:42:10</td>
             <td class="font-medium text-xs">Acme Corp</td>
+            <td class="text-xs font-semibold text-primary">Primary Production Key</td>
             <td><code class="text-primary font-medium">#rid_9D12F</code></td>
             <td><code class="text-silver">/v1/verify/nin</code></td>
             <td class="font-semibold text-xs">POST</td>
@@ -84,6 +91,7 @@
           <tr>
              <td class="text-xs text-muted-foreground">2024-04-01 19:35:10</td>
              <td class="font-medium text-xs">NovaPay</td>
+             <td class="text-xs font-semibold text-primary">Mobile App Integration</td>
              <td><code class="text-primary font-medium">#rid_AF012</code></td>
              <td><code class="text-silver">/v1/transaction/list</code></td>
              <td class="font-semibold text-xs">GET</td>
