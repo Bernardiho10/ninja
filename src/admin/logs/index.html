@@ -1,84 +1,100 @@
-<div class="page" data-ham-page-config='{"layout": "../default.lhtml"}'>
+<div class="page" data-ham-page-config='{"layout": "../../admin.lhtml"}'>
   <div class="page-header flex justify-between items-center">
     <div>
-      <h1 class="page-title"><i class="ph-duotone ph-list-bullets"></i> My API Activity Logs</h1>
-      <p class="text-muted-foreground">Monitoring your recent integration traffic and request history.</p>
+      <h1 class="page-title"><i class="ph-duotone ph-list-bullets"></i> System-Wide API Logs</h1>
+      <p class="page-subtitle">Monitoring real-time API traffic across all business accounts.</p>
     </div>
     <div class="flex gap-2 items-center">
        <button class="btn btn-secondary shadow-sm">
          <i class="ph-duotone ph-download-simple"></i>
-         <span>Download History</span>
+         <span>Export CSV</span>
        </button>
     </div>
   </div>
 
   <div class="card card-glossy">
     <div class="table-container">
-      <table id="activity-table">
+      <table id="log-table">
         <thead>
           <tr>
             <th>Timestamp</th>
+            <th>Business</th>
             <th>Request ID</th>
-            <th>Endpoint</th>
+            <th>Path</th>
             <th>Method</th>
             <th>Status</th>
             <th>Charge (₦)</th>
           </tr>
           <tr class="filter-row">
             <th><input type="text" class="column-filter form-control text-xs" data-column="0" placeholder="Filter date..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="1" placeholder="Filter ID..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="2" placeholder="Filter Endpoint..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="3" placeholder="Filter Method..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="4" placeholder="Filter Status..."></th>
-            <th><input type="text" class="column-filter form-control text-xs" data-column="5" placeholder="Filter Price..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="1" placeholder="Filter business..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="2" placeholder="Filter ID..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="3" placeholder="Filter Path..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="4" placeholder="Filter Method..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="5" placeholder="Filter Status..."></th>
+            <th><input type="text" class="column-filter form-control text-xs" data-column="6" placeholder="Filter Price..."></th>
           </tr>
         </thead>
-        <tbody id="activity-table-body">
+        <tbody id="log-table-body">
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 22:15:20</td>
+            <td class="font-medium text-xs">Acme Corp</td>
             <td><code class="text-primary font-medium">#rid_7A92C</code></td>
             <td><code class="text-silver">/v1/verify/identity</code></td>
-            <td class="font-semibold text-xs text-primary">POST</td>
+            <td class="font-semibold text-xs">POST</td>
             <td><span class="badge badge-success">200 OK</span></td>
             <td class="font-semibold text-right">100.00</td>
           </tr>
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 22:14:55</td>
+            <td class="font-medium text-xs">Globex Inc.</td>
             <td><code class="text-primary font-medium">#rid_8B02E</code></td>
             <td><code class="text-silver">/v1/payment/initiate</code></td>
-            <td class="font-semibold text-xs text-primary">POST</td>
+            <td class="font-semibold text-xs">POST</td>
             <td><span class="badge badge-success">200 OK</span></td>
             <td class="font-semibold text-right">100.00</td>
           </tr>
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 21:05:12</td>
+            <td class="font-medium text-xs">Acme Corp</td>
             <td><code class="text-primary font-medium">#rid_1F04A</code></td>
             <td><code class="text-silver">/v1/auth/token</code></td>
-            <td class="font-semibold text-xs text-primary">GET</td>
+            <td class="font-semibold text-xs">GET</td>
             <td><span class="badge badge-error">401 Fail</span></td>
             <td class="font-semibold text-right">0.00</td>
           </tr>
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 20:30:45</td>
+            <td class="font-medium text-xs">FinStack Ltd</td>
             <td><code class="text-primary font-medium">#rid_3C28D</code></td>
             <td><code class="text-silver">/v1/lookup/phone</code></td>
-            <td class="font-semibold text-xs text-primary">GET</td>
+            <td class="font-semibold text-xs">GET</td>
             <td><span class="badge badge-success">200 OK</span></td>
             <td class="font-semibold text-right">100.00</td>
           </tr>
           <tr>
             <td class="text-xs text-muted-foreground">2024-04-01 19:42:10</td>
+            <td class="font-medium text-xs">Acme Corp</td>
             <td><code class="text-primary font-medium">#rid_9D12F</code></td>
             <td><code class="text-silver">/v1/verify/nin</code></td>
-            <td class="font-semibold text-xs text-primary">POST</td>
+            <td class="font-semibold text-xs">POST</td>
             <td><span class="badge badge-success">200 OK</span></td>
             <td class="font-semibold text-right">100.00</td>
           </tr>
+          <tr>
+             <td class="text-xs text-muted-foreground">2024-04-01 19:35:10</td>
+             <td class="font-medium text-xs">NovaPay</td>
+             <td><code class="text-primary font-medium">#rid_AF012</code></td>
+             <td><code class="text-silver">/v1/transaction/list</code></td>
+             <td class="font-semibold text-xs">GET</td>
+             <td><span class="badge badge-success">200 OK</span></td>
+             <td class="font-semibold text-right">50.00</td>
+           </tr>
         </tbody>
       </table>
     </div>
     <div class="pagination mt-4 flex justify-between items-center">
-       <div class="text-slate small">Showing 1-5 of 124 requests</div>
+       <div class="text-slate small" id="log-count">Showing 1-6 of 24,102 requests</div>
        <div class="flex gap-2">
           <button class="btn btn-secondary btn-sm" disabled><i class="ph-bold ph-caret-left"></i> Prev</button>
           <button class="btn btn-secondary btn-sm">Next <i class="ph-bold ph-caret-right"></i></button>
@@ -88,11 +104,10 @@
 </div>
 
 <script>
-  // Simple table filtration logic for client
+  // Simple table filtration logic
   document.addEventListener('DOMContentLoaded', () => {
     const filters = document.querySelectorAll('.column-filter');
-    const tableBody = document.getElementById('activity-table-body');
-    if (!tableBody) return;
+    const tableBody = document.getElementById('log-table-body');
     const rows = tableBody.getElementsByTagName('tr');
 
     filters.forEach(filter => {
@@ -133,4 +148,6 @@
     height: 28px !important;
     background: hsl(var(--background)) !important;
   }
+  .filter-row th:first-child { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+  .filter-row th:last-child { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
 </style>
