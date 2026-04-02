@@ -168,7 +168,10 @@
             <td class="text-xs text-muted-foreground">2024-01-10</td>
             <td><span class="badge badge-success">Active</span></td>
             <td class="text-right">
-              <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText(&#39;sk_live_51M...8jK2&#39;)">Copy</button>
+              <div class="flex gap-2 justify-end">
+                <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText(&#39;sk_live_51M...8jK2&#39;)">Copy</button>
+                <button class="btn btn-outline-error btn-sm revoke-btn">Revoke</button>
+              </div>
             </td>
           </tr>
           <tr>
@@ -177,7 +180,10 @@
             <td class="text-xs text-muted-foreground">2024-02-15</td>
             <td><span class="badge badge-success">Active</span></td>
             <td class="text-right">
-              <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText(&#39;sk_live_82N...1pL9&#39;)">Copy</button>
+              <div class="flex gap-2 justify-end">
+                <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText(&#39;sk_live_82N...1pL9&#39;)">Copy</button>
+                <button class="btn btn-outline-error btn-sm revoke-btn">Revoke</button>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -253,6 +259,37 @@
       </div>
     </div>
   </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const revokeButtons = document.querySelectorAll('.revoke-btn');
+    
+    revokeButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const row = e.target.closest('tr');
+        const keyName = row.cells[0].innerText;
+        
+        if (confirm(`Are you sure you want to revoke the "${keyName}" API key? This action is immediate and cannot be undone.`)) {
+          const statusCell = row.cells[3];
+          statusCell.innerHTML = '<span class="badge badge-error">Revoked</span>';
+          btn.disabled = true;
+          btn.innerText = 'Revoked';
+          btn.classList.add('opacity-50');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .btn-outline-error {
+    border: 1px solid hsl(var(--error));
+    color: hsl(var(--error));
+    background: transparent;
+  }
+  .btn-outline-error:hover {
+    background: hsl(var(--error) / 0.1);
+  }
+</style>
 </div>
 
       </div>
@@ -294,7 +331,7 @@
       <li><a href="/admin/"><i class="ph-duotone ph-chart-pie"></i><span>Overview</span></a></li>
       <li><a href="/admin/businesses/"><i class="ph-duotone ph-buildings"></i><span>Businesses</span></a></li>
       <li><a href="/admin/logs/"><i class="ph-duotone ph-activity"></i><span>Logs</span></a></li>
-      <li><a href="/docs/"><i class="ph-duotone ph-book-open"></i><span>Docs</span></a></li>
+      <li><a href="/admin/docs/"><i class="ph-duotone ph-book-open"></i><span>Docs</span></a></li>
       <li><a href="/settings/"><i class="ph-duotone ph-gear"></i><span>Settings</span></a></li>
     </ul>
   </nav>
