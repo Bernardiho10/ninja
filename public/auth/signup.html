@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ninja | Authentication</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('ninja-theme') || 'dark';
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/index.css?v=4"/>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="auth-body">
+
+  <div class="auth-wrapper">
+    <div class="page">
+  <div class="auth-card card-glossy">
+    <div class="text-center mb-6">
+      <div class="brand-logo mb-4" style="display: flex; justify-content: center;">
+        <div style="background-color: var(--ninja-white); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+          <i class="ph-bold ph-lightning" style="color: black; font-size: 1.5rem;"></i>
+        </div>
+      </div>
+      <h2 class="page-title text-center" style="font-size: 1.5rem;">Create Account</h2>
+      <p class="page-subtitle" style="font-size: 0.875rem;">Join the Ninja workstation ecosystem</p>
+    </div>
+
+    <form id="signup-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" class="form-control" placeholder="Choose a username" required=""/>
+      </div>
+      <div class="form-group">
+        <label for="business-name">Business Name</label>
+        <input type="text" id="business-name" class="form-control" placeholder="Your brand name" required=""/>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" class="form-control" placeholder="+234..." required=""/>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="••••••••" required=""/>
+      </div>
+      <button type="submit" id="signup-btn" class="btn btn-primary w-full mt-4">
+        <span>Create Account</span>
+      </button>
+    </form>
+
+    <div class="text-center mt-6 small">
+      <p class="text-slate">Already have an account? <a href="/auth/login" class="text-white hover:underline">Login</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/auth/signup.js" defer=""></script>
+
+  </div>
+
+<script src="/assets/js/index.js?v=4" defer=""></script>
+
+
+</body></html>

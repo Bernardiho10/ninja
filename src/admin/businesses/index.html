@@ -1,0 +1,123 @@
+<div class="page-container" data-ham-page-config='{"layout": "../../admin.lhtml"}'>
+  <div class="page-header flex flex-row items-center justify-between">
+    <div>
+      <h1 class="page-title">Manage Businesses</h1>
+      <p class="page-subtitle">Track registration, revenue, and request health per business.</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <button class="btn btn-secondary shadow-sm">
+            <i class="ph-bold ph-export"></i>
+            <span>Export Data</span>
+        </button>
+    </div>
+  </div>
+
+  <div class="card card-glossy">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="flex-1 relative">
+        <i class="ph-bold ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"></i>
+        <input type="text" placeholder="Search businesses..." class="form-control pl-10">
+      </div>
+    </div>
+
+    <div class="table-container relative overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="border-b border-border/50">
+            <th class="p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Business Name</th>
+            <th class="p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Monthly Revenue</th>
+            <th class="p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Total Requests</th>
+            <th class="p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Success/Fail</th>
+            <th class="p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Status</th>
+            <th class="p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Action</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/30">
+          <tr>
+            <td class="p-4">
+               <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">A</div>
+                  <div>
+                    <p class="font-medium">Acme Corp</p>
+                    <p class="text-xs text-muted-foreground">Reg: RC123456</p>
+                  </div>
+               </div>
+            </td>
+            <td class="p-4 font-medium">$12,450.00</td>
+            <td class="p-4 font-medium">850,234</td>
+            <td class="p-4">
+              <div class="flex items-center gap-2">
+                 <span class="text-xs font-medium text-green-600">99.2%</span>
+                 <div class="w-24 h-1.5 rounded-full bg-secondary overflow-hidden">
+                    <div class="h-full bg-green-600" style="width: 99%"></div>
+                 </div>
+              </div>
+            </td>
+            <td class="p-4">
+               <span class="badge bg-green-500/10 text-green-600 border-none">Active</span>
+            </td>
+            <td class="p-4">
+               <button class="btn btn-secondary btn-sm text-destructive hover:bg-destructive/10">Deactivate</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="p-4">
+               <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">G</div>
+                  <div>
+                    <p class="font-medium">Globex Inc.</p>
+                    <p class="text-xs text-muted-foreground">Reg: RC654321</p>
+                  </div>
+               </div>
+            </td>
+            <td class="p-4 font-medium">$8,200.00</td>
+            <td class="p-4 font-medium">420,112</td>
+            <td class="p-4">
+              <div class="flex items-center gap-2">
+                 <span class="text-xs font-medium text-green-500">98.5%</span>
+                 <div class="w-24 h-1.5 rounded-full bg-secondary overflow-hidden">
+                    <div class="h-full bg-green-500" style="width: 98%"></div>
+                 </div>
+              </div>
+            </td>
+            <td class="p-4">
+               <span class="badge bg-green-500/10 text-green-600 border-none">Active</span>
+            </td>
+            <td class="p-4">
+               <button class="btn btn-secondary btn-sm text-destructive hover:bg-destructive/10">Deactivate</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="p-4">
+               <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">S</div>
+                  <div>
+                    <p class="font-medium">Soylent Corp</p>
+                    <p class="text-xs text-muted-foreground">Reg: RC000123</p>
+                  </div>
+               </div>
+            </td>
+            <td class="p-4 font-medium">$2,150.00</td>
+            <td class="p-4 font-medium">92,341</td>
+            <td class="p-4">
+              <div class="flex items-center gap-2">
+                 <span class="text-xs font-medium text-red-600">82.1%</span>
+                 <div class="w-24 h-1.5 rounded-full bg-secondary overflow-hidden">
+                    <div class="h-full bg-red-600" style="width: 82%"></div>
+                 </div>
+              </div>
+            </td>
+            <td class="p-4">
+               <span class="badge bg-red-500/10 text-red-600 border-none">Deactivated</span>
+            </td>
+            <td class="p-4">
+               <button class="btn btn-primary btn-sm">Activate</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

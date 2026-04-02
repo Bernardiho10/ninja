@@ -1,0 +1,95 @@
+<div class="page" data-ham-page-config='{"layout": "../../default.lhtml"}'>
+  <div class="page-header flex justify-between items-center">
+    <div>
+      <h1 class="page-title">API Keys</h1>
+      <p class="page-subtitle">Manage your credentials for integrating with Ninja.</p>
+    </div>
+    <button class="btn btn-primary" id="create-key-btn">
+      <i class="ph-duotone ph-plus-circle"></i> Create New Key
+    </button>
+  </div>
+
+  <div class="card card-glossy">
+    <div class="table-container">
+      <table id="api-keys-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>API Key</th>
+            <th>Created</th>
+            <th>Status</th>
+            <th class="text-right">Actions</th>
+          </tr>
+          <tr class="filter-row">
+            <th><input type="text" class="column-filter" data-column="0" placeholder="Name..."></th>
+            <th><input type="text" class="column-filter" data-column="1" placeholder="Key..."></th>
+            <th><input type="date" class="column-filter" data-column="2"></th>
+            <th><input type="text" class="column-filter" data-column="3" placeholder="Status..."></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-medium">Primary Production Key</td>
+            <td><code class="text-primary select-all">sk_live_51M...8jK2</code></td>
+            <td class="text-xs text-muted-foreground">2024-01-10</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td class="text-right">
+              <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText('sk_live_51M...8jK2')">Copy</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="font-medium">Mobile App Integration</td>
+            <td><code class="text-primary select-all">sk_live_82N...1pL9</code></td>
+            <td class="text-xs text-muted-foreground">2024-02-15</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td class="text-right">
+              <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText('sk_live_82N...1pL9')">Copy</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card card-glossy border-destructive/20 bg-destructive/5">
+    <h3 class="font-semibold text-lg text-error mb-2">Danger Zone</h3>
+    <p class="text-muted-foreground text-sm mb-4">Revoking a key will immediately stop all API requests using that key. This action cannot be undone.</p>
+    <button class="btn btn-error shadow-sm">Revoke All Keys</button>
+  </div>
+
+  <!-- Create Key Modal -->
+  <div class="modal-overlay" id="create-key-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Create New API Key</h2>
+        <div class="modal-close" id="modal-close-btn">
+          <i class="ph ph-x"></i>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form id="create-key-form" class="space-y-4">
+          <div class="form-group">
+            <label for="key-name" class="form-label block mb-1">Key Name</label>
+            <input type="text" id="key-name" class="form-control w-full" placeholder="e.g. Production Mobile App" required>
+            <p class="text-xs text-muted-foreground mt-1">Provide a descriptive name to identify this key later.</p>
+          </div>
+          <div class="form-group">
+            <label for="key-expiry" class="form-label block mb-1">Expiration</label>
+            <select id="key-expiry" class="form-control w-full">
+              <option value="7">7 Days</option>
+              <option value="30" selected>30 Days</option>
+              <option value="60">60 Days</option>
+              <option value="90">90 Days</option>
+              <option value="0">Never Expire</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="modal-cancel-btn">Cancel</button>
+        <button type="submit" form="create-key-form" class="btn btn-primary" id="modal-submit-btn">Create Key</button>
+      </div>
+    </div>
+  </div>
+</div>

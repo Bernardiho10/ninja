@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ninja | Authentication</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('ninja-theme') || 'dark';
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/index.css?v=6">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="auth-body">
+
+  <div class="auth-wrapper">
+    <embed type="ham/page"/>
+  </div>
+
+<script src="/assets/js/index.js?v=6" defer></script>
+</body>
+</html>

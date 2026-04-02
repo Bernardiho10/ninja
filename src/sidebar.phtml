@@ -1,0 +1,72 @@
+<aside id="sidebar" class="sidebar kyb-pending">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="logo-box">N</div>
+      <span class="logo-text">NINJA</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <!-- Desktop Toggle -->
+      <button id="sidebar-toggle" class="collapse-toggle desktop-only" title="Toggle Sidebar">
+        <i class="ph-bold ph-caret-left"></i>
+      </button>
+      <!-- Close button for mobile -->
+      <button id="sidebar-close" class="btn-icon mobile-only" title="Close Menu">
+        <i class="ph-duotone ph-x"></i>
+      </button>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Main Menu</div>
+    
+    <a href="/" class="nav-item active" id="nav-home">
+      <i class="ph-duotone ph-house-line"></i>
+      <span>Dashboard</span>
+    </a>
+    
+    <a href="/api/keys/" class="nav-item" id="nav-keys">
+      <i class="ph-duotone ph-key"></i>
+      <span>API Keys</span>
+    </a>
+    
+    <a href="/wallet/" class="nav-item" id="nav-wallet">
+      <i class="ph-duotone ph-wallet"></i>
+      <span>Wallet</span>
+    </a>
+    
+    <a href="/kyb/" class="nav-item" id="nav-kyb">
+      <i class="ph-duotone ph-shield-check"></i>
+      <span>KYB Verification</span>
+    </a>
+    
+    <a href="/logs/" class="nav-item" id="nav-logs">
+      <i class="ph-duotone ph-terminal-window"></i>
+      <span>API Logs</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="https://wa.me/2349000000000" target="_blank" class="nav-item support-btn" style="color: #25D366;">
+      <i class="ph-fill ph-whatsapp-logo"></i>
+      <span>WhatsApp Support</span>
+    </a>
+    <a href="/auth/login.html" class="nav-item text-danger">
+      <i class="ph-duotone ph-sign-out"></i>
+      <span>Logout</span>
+    </a>
+    <div class="sidebar-footer-info">
+      <div class="sidebar-footer-links">
+        <a href="/support">Support</a>
+        <span class="footer-dot">·</span>
+        <a href="/terms">Terms</a>
+        <span class="footer-dot">·</span>
+        <a href="/privacy">Privacy</a>
+      </div>
+      <p class="sidebar-footer-copy">&copy; 2024 Ninja. All Rights Reserved.</p>
+      <p class="sidebar-footer-built">Built by <a href="https://www.bougroup.org/" target="_blank" rel="noopener noreferrer">BOU</a></p>
+    </div>
+  </div>
+</aside>
+
+<!-- Backdrop for mobile -->
+<div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>

@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ninja Admin | Management Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('ninja-theme') || 'dark';
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/index.css?v=7"/>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+<div id="app" class="app-layout">
+  <aside id="sidebar" class="sidebar">
+  <div class="sidebar-header">
+    <a href="/admin/" class="sidebar-logo">
+      <div class="logo-box bg-primary text-primary-foreground">A</div>
+      <span class="logo-text">ADMIN HUB</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <!-- Desktop Toggle -->
+      <button id="sidebar-toggle" class="collapse-toggle desktop-only" title="Toggle Sidebar">
+        <i class="ph-bold ph-caret-left"></i>
+      </button>
+      <!-- Close button for mobile -->
+      <button id="sidebar-close" class="btn-icon mobile-only" title="Close Menu">
+        <i class="ph-duotone ph-x"></i>
+      </button>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Management</div>
+    
+    <a href="/admin/" class="nav-item active" id="admin-nav-home">
+      <i class="ph-duotone ph-chart-pie"></i>
+      <span>Overview</span>
+    </a>
+    
+    <a href="/admin/businesses/" class="nav-item" id="admin-nav-businesses">
+      <i class="ph-duotone ph-buildings"></i>
+      <span>Businesses</span>
+    </a>
+    
+    <a href="/logs/" class="nav-item" id="admin-nav-logs">
+      <i class="ph-duotone ph-activity"></i>
+      <span>System Logs</span>
+    </a>
+
+    <div class="nav-section-title mt-6">Settings</div>
+    <a href="/settings/" class="nav-item" id="admin-nav-settings">
+      <i class="ph-duotone ph-gear"></i>
+      <span>Global Settings</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="https://wa.me/2349000000000" target="_blank" class="nav-item support-btn" style="color: #25D366;">
+      <i class="ph-fill ph-whatsapp-logo"></i>
+      <span>WhatsApp Support</span>
+    </a>
+    <a href="/auth/login.html" class="nav-item text-danger">
+      <i class="ph-duotone ph-sign-out"></i>
+      <span>Logout</span>
+    </a>
+    <div class="sidebar-footer-info">
+      <p class="sidebar-footer-copy">© 2024 Ninja Admin.</p>
+      <p class="sidebar-footer-built">Built by <a href="https://www.bougroup.org/" target="_blank">BOU</a></p>
+    </div>
+  </div>
+</aside>
+
+<!-- Backdrop for mobile -->
+<div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>
+
+  
+  <div class="main-wrapper">
+    <header class="header">
+  <div class="header-container">
+    <div class="header-left">
+      <!-- Mobile hamburger toggle -->
+      <button id="mobile-menu-toggle" class="btn-icon mobile-only" title="Menu">
+        <i class="ph-duotone ph-list text-lg"></i>
+      </button>
+      
+      <!-- Mobile Logo -->
+      <a href="/" class="header-logo mobile-only">
+        <div class="logo-box">N</div>
+        <span class="logo-text">NINJA</span>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="btn-icon" title="Toggle Theme">
+        <i class="ph-duotone ph-moon text-lg dark-hidden"></i>
+        <i class="ph-duotone ph-sun text-lg light-hidden"></i>
+      </button>
+
+      <div class="user-profile">
+        <div class="user-info desktop-only">
+          <span class="user-name">Bernardiho</span>
+          <span class="user-role">Admin Account</span>
+        </div>
+        <div class="user-avatar-circle">BH</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+    
+    <main class="main-content">
+      <div class="container px-6">
+        <div class="page-container">
+  <div class="page-header">
+    <h1 class="page-title">Admin Overview</h1>
+    <p class="page-subtitle">Platform health and business registration metrics at a glance.</p>
+  </div>
+
+  <!-- Stats Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="card card-glossy">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">Total Businesses</p>
+          <h3 class="text-3xl font-bold mt-1">124</h3>
+        </div>
+        <div class="bg-primary/10 p-3 rounded-xl">
+          <i class="ph-duotone ph-buildings text-2xl text-primary"></i>
+        </div>
+      </div>
+      <div class="mt-4 flex items-center gap-2">
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-500/10 text-green-600">+12%</span>
+        <span class="text-xs text-muted-foreground">from last month</span>
+      </div>
+    </div>
+
+    <div class="card card-glossy border-accent/20">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">Completed Profiles</p>
+          <h3 class="text-3xl font-bold mt-1">98</h3>
+        </div>
+        <div class="bg-bou-green/10 p-3 rounded-xl">
+          <i class="ph-duotone ph-shield-check text-2xl text-bou-green"></i>
+        </div>
+      </div>
+      <div class="mt-4 flex items-center gap-2">
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600">79%</span>
+        <span class="text-xs text-muted-foreground">conversion rate</span>
+      </div>
+    </div>
+
+    <div class="card card-glossy">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">API Requests (Month)</p>
+          <h3 class="text-3xl font-bold mt-1">1.2M</h3>
+        </div>
+        <div class="bg-secondary/10 p-3 rounded-xl">
+          <i class="ph-duotone ph-activity text-2xl text-secondary"></i>
+        </div>
+      </div>
+      <div class="mt-4 flex items-center gap-2">
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-500/10 text-green-600">Stable</span>
+        <span class="text-xs text-muted-foreground">system health</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="card card-glossy">
+       <h3 class="text-lg font-semibold mb-4">Verification Pipeline</h3>
+       <div class="space-y-4">
+         <div class="flex items-center justify-between p-3 rounded-lg bg-secondary/30">
+            <div class="flex items-center gap-3">
+               <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600">
+                  <i class="ph-duotone ph-clock"></i>
+               </div>
+               <div>
+                  <p class="text-sm font-medium">Pending Review</p>
+                  <p class="text-xs text-muted-foreground">8 new businesses waiting</p>
+               </div>
+            </div>
+            <a href="/admin/businesses" class="btn btn-secondary btn-sm">View</a>
+         </div>
+       </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+  <div class="container flex justify-between items-center column-mobile">
+    <div class="footer-brand">
+      <p>© 2024 Ninja. All Rights Reserved.</p>
+    </div>
+    <div class="footer-links">
+      <ul class="flex gap-4">
+        <li><a href="/support">Support</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="footer-signature">
+      <p style="color: #10A500;">Built by <a href="https://www.bougroup.org/technology.html" target="_blank" rel="noopener noreferrer">BOU</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bottom Navigation for Mobile -->
+<div class="bottom-nav-container">
+  <nav class="bottom-nav">
+    <ul class="flex justify-between w-full">
+      <li><a href="/"><i class="ph-duotone ph-house-line"></i><span>Home</span></a></li>
+      <li><a href="/wallet/"><i class="ph-duotone ph-wallet"></i><span>Wallet</span></a></li>
+      <li><a href="/api/keys/"><i class="ph-duotone ph-key"></i><span>Keys</span></a></li>
+      <li><a href="/logs/"><i class="ph-duotone ph-terminal-window"></i><span>Logs</span></a></li>
+      <li><a href="/kyb/"><i class="ph-duotone ph-shield-check"></i><span>KYB</span></a></li>
+    </ul>
+  </nav>
+</div>
+  </div>
+</div>
+
+<script src="/assets/js/index.js?v=7" defer=""></script>
+
+
+</body></html>

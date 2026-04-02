@@ -1,0 +1,73 @@
+<div class="page" data-ham-page-config='{"layout": "default.lhtml"}'>
+  <div class="page-header">
+    <h1 class="page-title">Dashboard</h1>
+    <p class="text-muted-foreground">Welcome back, Ninja. Here is your overview.</p>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="card card-glossy stat-card">
+      <div class="stat-header flex justify-between items-center mb-2">
+        <h3 class="stat-title font-medium"><i class="ph-duotone ph-wallet"></i> Current Balance</h3>
+        <span class="badge badge-success">Active</span>
+      </div>
+      <div class="stat-value font-bold">₦ 250,500.00</div>
+      <div class="stat-footer mt-4">
+        <a href="/wallet/" class="btn btn-primary w-full shadow-sm">Fund Account</a>
+      </div>
+    </div>
+
+    <div class="card card-glossy stat-card">
+      <div class="stat-header flex justify-between items-center mb-2">
+        <h3 class="stat-title font-medium"><i class="ph-duotone ph-key"></i> Active API Keys</h3>
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary">Live</span>
+      </div>
+      <div class="stat-value font-bold">3</div>
+      <div class="stat-footer mt-4">
+        <a href="/api/keys/" class="btn w-full shadow-sm">Manage Keys</a>
+      </div>
+    </div>
+
+    <div class="card card-glossy stat-card">
+      <div class="stat-header flex justify-between items-center mb-2">
+        <h3 class="stat-title font-medium"><i class="ph-duotone ph-terminal-window"></i> API Calls</h3>
+        <span class="text-muted-foreground text-xs">Last 24h</span>
+      </div>
+      <div class="stat-value font-bold">24,582</div>
+      <div class="stat-footer mt-4">
+        <a href="/logs/" class="btn w-full shadow-sm">View Logs</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <div class="card card-glossy">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="font-semibold text-lg">Recent API Activity</h3>
+        <div class="flex items-center gap-2 text-xs text-muted-foreground">
+           <i class="ph-fill ph-circle-wavy-check text-success"></i> Real-time updates active
+        </div>
+      </div>
+      <div class="table-container">
+        <table id="activity-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Endpoint</th>
+              <th>Status</th>
+              <th>Charge</th>
+            </tr>
+            <tr class="filter-row">
+              <th><input type="date" class="column-filter" data-column="0"></th>
+              <th><input type="text" class="column-filter" data-column="1" placeholder="Filter Endpoint..."></th>
+              <th><input type="text" class="column-filter" data-column="2" placeholder="Filter Status..."></th>
+              <th><input type="number" class="column-filter" data-column="3" step="0.01" placeholder="0.00"></th>
+            </tr>
+          </thead>
+          <tbody id="activity-table-body">
+            <!-- Dynamic content injected by index.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

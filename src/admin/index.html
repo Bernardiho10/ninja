@@ -1,0 +1,77 @@
+<div class="page-container" data-ham-page-config='{"layout": "../admin.lhtml"}'>
+  <div class="page-header">
+    <h1 class="page-title">Admin Overview</h1>
+    <p class="page-subtitle">Platform health and business registration metrics at a glance.</p>
+  </div>
+
+  <!-- Stats Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="card card-glossy">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">Total Businesses</p>
+          <h3 class="text-3xl font-bold mt-1">124</h3>
+        </div>
+        <div class="bg-primary/10 p-3 rounded-xl">
+          <i class="ph-duotone ph-buildings text-2xl text-primary"></i>
+        </div>
+      </div>
+      <div class="mt-4 flex items-center gap-2">
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-500/10 text-green-600">+12%</span>
+        <span class="text-xs text-muted-foreground">from last month</span>
+      </div>
+    </div>
+
+    <div class="card card-glossy border-accent/20">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">Completed Profiles</p>
+          <h3 class="text-3xl font-bold mt-1">98</h3>
+        </div>
+        <div class="bg-bou-green/10 p-3 rounded-xl">
+          <i class="ph-duotone ph-shield-check text-2xl text-bou-green"></i>
+        </div>
+      </div>
+      <div class="mt-4 flex items-center gap-2">
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600">79%</span>
+        <span class="text-xs text-muted-foreground">conversion rate</span>
+      </div>
+    </div>
+
+    <div class="card card-glossy">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">API Requests (Month)</p>
+          <h3 class="text-3xl font-bold mt-1">1.2M</h3>
+        </div>
+        <div class="bg-secondary/10 p-3 rounded-xl">
+          <i class="ph-duotone ph-activity text-2xl text-secondary"></i>
+        </div>
+      </div>
+      <div class="mt-4 flex items-center gap-2">
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-500/10 text-green-600">Stable</span>
+        <span class="text-xs text-muted-foreground">system health</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="card card-glossy">
+       <h3 class="text-lg font-semibold mb-4">Verification Pipeline</h3>
+       <div class="space-y-4">
+         <div class="flex items-center justify-between p-3 rounded-lg bg-secondary/30">
+            <div class="flex items-center gap-3">
+               <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600">
+                  <i class="ph-duotone ph-clock"></i>
+               </div>
+               <div>
+                  <p class="text-sm font-medium">Pending Review</p>
+                  <p class="text-xs text-muted-foreground">8 new businesses waiting</p>
+               </div>
+            </div>
+            <a href="/admin/businesses" class="btn btn-secondary btn-sm">View</a>
+         </div>
+       </div>
+    </div>
+  </div>
+</div>

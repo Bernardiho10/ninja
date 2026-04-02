@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ninja | Professional API Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/css/index.css"/>
+</head>
+<body>
+
+<div id="app" class="app-layout">
+  <aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <a href="/" class="flex items-center gap-2">
+        <span class="logo-text">NINJA</span>
+      </a>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li><a href="/" id="nav-home"><i class="ph-duotone ph-chart-pie-slice"></i> Dashboard</a></li>
+      <li><a href="/api/keys/" id="nav-keys"><i class="ph-duotone ph-key"></i> API Keys</a></li>
+      <li><a href="/wallet/" id="nav-wallet"><i class="ph-duotone ph-wallet"></i> Wallet</a></li>
+      <li><a href="/kyb/" id="nav-kyb"><i class="ph-duotone ph-shield-check"></i> KYB</a></li>
+      <li><a href="/logs/" id="nav-logs"><i class="ph-duotone ph-list-bullets"></i> Logs</a></li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="#" class="logout-btn text-error flex items-center gap-2">
+      <i class="ph-duotone ph-sign-out"></i> Logout
+      </a>
+  </div>
+</aside>
+  
+  <div class="main-wrapper">
+    <header class="header">
+  <div class="container flex justify-between items-center">
+    <div class="logo desktop-hidden">
+      <a href="/" class="flex items-center gap-2">
+        <span class="logo-text">NINJA</span>
+      </a>
+    </div>
+    <div class="user-profile flex items-center gap-4">
+       <div class="user-info mobile-hidden text-right">
+          <p class="user-name">Bernardiho</p>
+          <p class="user-role">Business Owner</p>
+       </div>
+       <div class="user-avatar">B</div>
+       <button class="mobile-toggle btn-icon">
+          <span></span>
+       </button>
+    </div>
+  </div>
+</header>
+
+    
+    <main class="main-content">
+      <div class="container">
+        <div class="page">
+  <div class="page-header flex justify-between items-center">
+    <div>
+      <h1 class="page-title">API Keys</h1>
+      <p class="page-subtitle">Manage your credentials for integrating with Ninja.</p>
+    </div>
+    <button class="btn btn-primary" id="create-key-btn">Create New Key</button>
+  </div>
+
+  <div class="card">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>API Key</th>
+            <th>Created</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Production Main</td>
+            <td><code>ninja_live_••••••••••••••••</code></td>
+            <td>Apr 01, 2024</td>
+            <td><button class="btn btn-small text-error">Delete</button></td>
+          </tr>
+          <tr>
+            <td>Test Environment</td>
+            <td><code>ninja_test_••••••••••••••••</code></td>
+            <td>Mar 28, 2024</td>
+            <td><button class="btn btn-small text-error">Delete</button></td>
+          </tr>
+          <tr>
+            <td>Mobile App</td>
+            <td><code>ninja_live_••••••••••••••••</code></td>
+            <td>Feb 15, 2024</td>
+            <td><button class="btn btn-small text-error">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Placeholder for Create Key -->
+  <div id="create-key-modal" class="modal-hidden">
+     <!-- Modal content here -->
+  </div>
+</div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+  <div class="container flex justify-between items-center column-mobile">
+    <div class="footer-brand">
+      <p>© 2024 Ninja. All Rights Reserved.</p>
+    </div>
+    <div class="footer-links">
+      <ul class="flex gap-4">
+        <li><a href="/support">Support</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="footer-signature">
+      <p>Built by <a href="https://www.bougroup.org/" target="_blank" rel="noopener noreferrer">BOU</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bottom Navigation for Mobile -->
+<div class="bottom-nav-container">
+  <nav class="bottom-nav">
+     <ul class="flex justify-between w-full">
+        <li class="active"><a href="/"><i class="icon-home"></i><span>Home</span></a></li>
+        <li><a href="/wallet"><i class="icon-wallet"></i><span>Wallet</span></a></li>
+        <li><a href="/api/keys"><i class="icon-key"></i><span>Keys</span></a></li>
+        <li><a href="/logs"><i class="icon-logs"></i><span>Logs</span></a></li>
+        <li><a href="/kyb"><i class="icon-kyb"></i><span>KYB</span></a></li>
+     </ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+
+<script src="/assets/js/index.js?v=3" defer=""></script>
+
+
+</body></html>

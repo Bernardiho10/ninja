@@ -1,0 +1,61 @@
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-header">
+    <a href="/admin/" class="sidebar-logo">
+      <div class="logo-box bg-primary text-primary-foreground">A</div>
+      <span class="logo-text">ADMIN HUB</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <!-- Desktop Toggle -->
+      <button id="sidebar-toggle" class="collapse-toggle desktop-only" title="Toggle Sidebar">
+        <i class="ph-bold ph-caret-left"></i>
+      </button>
+      <!-- Close button for mobile -->
+      <button id="sidebar-close" class="btn-icon mobile-only" title="Close Menu">
+        <i class="ph-duotone ph-x"></i>
+      </button>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Management</div>
+    
+    <a href="/admin/" class="nav-item active" id="admin-nav-home">
+      <i class="ph-duotone ph-chart-pie"></i>
+      <span>Overview</span>
+    </a>
+    
+    <a href="/admin/businesses/" class="nav-item" id="admin-nav-businesses">
+      <i class="ph-duotone ph-buildings"></i>
+      <span>Businesses</span>
+    </a>
+    
+    <a href="/logs/" class="nav-item" id="admin-nav-logs">
+      <i class="ph-duotone ph-activity"></i>
+      <span>System Logs</span>
+    </a>
+
+    <div class="nav-section-title mt-6">Settings</div>
+    <a href="/settings/" class="nav-item" id="admin-nav-settings">
+      <i class="ph-duotone ph-gear"></i>
+      <span>Global Settings</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="https://wa.me/2349000000000" target="_blank" class="nav-item support-btn" style="color: #25D366;">
+      <i class="ph-fill ph-whatsapp-logo"></i>
+      <span>WhatsApp Support</span>
+    </a>
+    <a href="/auth/login.html" class="nav-item text-danger">
+      <i class="ph-duotone ph-sign-out"></i>
+      <span>Logout</span>
+    </a>
+    <div class="sidebar-footer-info">
+      <p class="sidebar-footer-copy">&copy; 2024 Ninja Admin.</p>
+      <p class="sidebar-footer-built">Built by <a href="https://www.bougroup.org/" target="_blank">BOU</a></p>
+    </div>
+  </div>
+</aside>
+
+<!-- Backdrop for mobile -->
+<div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>

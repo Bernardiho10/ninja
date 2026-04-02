@@ -1,0 +1,67 @@
+<div class="page-container" data-ham-page-config='{"layout": "../default.lhtml"}'>
+  <div class="page-header">
+    <h1 class="page-title">KYB Verification</h1>
+    <p class="page-subtitle">Complete your "Know Your Business" to unlock higher API limits.</p>
+  </div>
+
+  <div id="kyb-status-banner" class="kyb-status-banner flex items-center gap-4 mb-6 p-4 rounded-lg bg-destructive/10 border border-destructive/20">
+    <div id="kyb-status-badge" class="badge badge-error">Pending Verification</div>
+    <p id="kyb-status-text" class="text-sm font-medium text-destructive">Your business documents are required for full account activation.</p>
+  </div>
+
+  <div class="card card-glossy max-w-2xl">
+    <div class="mb-6">
+      <h3 class="font-semibold text-xl mb-1">Business Verification (KYB)</h3>
+      <p class="text-muted-foreground text-sm">Please provide your business details to unlock higher transaction limits.
+      </p>
+    </div>
+
+    <form id="kyb-form" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="form-group">
+          <label for="biz-name" class="text-sm font-medium">Business Name</label>
+          <input type="text" id="biz-name" class="form-control mt-1" placeholder="e.g. Acme Corp" required>
+        </div>
+        <div class="form-group">
+          <label for="biz-type" class="text-sm font-medium">Business Type</label>
+          <select id="biz-type" class="form-control mt-1" required>
+            <option value="">Select Type...</option>
+            <option value="sole">Sole Proprietorship</option>
+            <option value="ltd">Limited Liability Company (LTD)</option>
+            <option value="plc">Public Limited Company (PLC)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-num" class="text-sm font-medium">Registration Number (RC/BN)</label>
+        <input type="text" id="reg-num" class="form-control mt-1" placeholder="e.g. RC1234567" required>
+      </div>
+
+      <div class="form-group">
+        <label for="biz-address" class="text-sm font-medium">Business Address</label>
+        <textarea id="biz-address" class="form-control mt-1" rows="3" placeholder="Full legal address..."
+          required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="text-sm font-medium mb-2 block">Upload Certificate of Incorporation</label>
+        <div class="upload-dropzone">
+          <i class="ph-duotone ph-cloud-arrow-up"></i>
+          <p class="upload-title">Click to upload or drag and drop</p>
+          <p class="upload-hint">PDF, PNG, JPG (max. 10MB)</p>
+          <input type="file" accept=".pdf,.png,.jpg">
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 pt-2">
+        <button type="submit" class="btn btn-primary shadow-sm flex-1">
+          Submit for Verification
+        </button>
+        <button type="button" class="btn btn-secondary shadow-sm">
+          Save Draft
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

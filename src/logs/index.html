@@ -1,0 +1,87 @@
+<div class="page" data-ham-page-config='{"layout": "../default.lhtml"}'>
+  <div class="page-header flex justify-between items-center">
+    <div>
+      <h1 class="page-title"><i class="ph-duotone ph-list-bullets"></i> API Request Logs</h1>
+      <p class="page-subtitle">Track every request made with your API keys.</p>
+    </div>
+    <div class="flex gap-2 items-center">
+       <button class="btn btn-small">
+         <i class="ph-duotone ph-download-simple"></i> Download CSV
+       </button>
+    </div>
+  </div>
+
+  <div class="card card-glossy">
+    <div class="table-container">
+      <table id="log-table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Request ID</th>
+            <th>Path</th>
+            <th>Method</th>
+            <th>Status</th>
+            <th>Charge (₦)</th>
+          </tr>
+            <tr class="filter-row">
+              <th><input type="date" class="column-filter" data-column="0"></th>
+            <th><input type="text" class="column-filter" data-column="1" placeholder="Filter ID..."></th>
+            <th><input type="text" class="column-filter" data-column="2" placeholder="Filter Path..."></th>
+            <th><input type="text" class="column-filter" data-column="3" placeholder="Filter Method..."></th>
+            <th><input type="text" class="column-filter" data-column="4" placeholder="Filter Status..."></th>
+            <th><input type="number" class="column-filter" data-column="5" step="0.01" placeholder="0.00"></th>
+          </tr>
+        </thead>
+        <tbody id="log-table-body">
+          <tr>
+            <td class="text-xs text-muted-foreground">2024-04-01 22:15:30</td>
+            <td><code class="text-primary font-medium">#rid_7A92C</code></td>
+            <td><code class="text-silver">/v1/verify/identity</code></td>
+            <td class="font-semibold text-xs">POST</td>
+            <td><span class="badge badge-success">200 OK</span></td>
+            <td class="font-semibold text-right">100.00</td>
+          </tr>
+          <tr>
+            <td class="text-xs text-muted-foreground">2024-04-01 21:05:12</td>
+            <td><code class="text-primary font-medium">#rid_8B02E</code></td>
+            <td><code class="text-silver">/v1/payment/initiate</code></td>
+            <td class="font-semibold text-xs">POST</td>
+            <td><span class="badge badge-success">200 OK</span></td>
+            <td class="font-semibold text-right">100.00</td>
+          </tr>
+          <tr>
+            <td class="text-xs text-muted-foreground">2024-04-01 20:30:45</td>
+            <td><code class="text-primary font-medium">#rid_1F04A</code></td>
+            <td><code class="text-silver">/v1/auth/token</code></td>
+            <td class="font-semibold text-xs">GET</td>
+            <td><span class="badge badge-error">401 Fail</span></td>
+            <td class="font-semibold text-right">0.00</td>
+          </tr>
+          <tr>
+            <td class="text-xs text-muted-foreground">2024-04-01 19:45:20</td>
+            <td><code class="text-primary font-medium">#rid_3C28D</code></td>
+            <td><code class="text-silver">/v1/lookup/phone</code></td>
+            <td class="font-semibold text-xs">GET</td>
+            <td><span class="badge badge-success">200 OK</span></td>
+            <td class="font-semibold text-right">100.00</td>
+          </tr>
+          <tr>
+            <td class="text-xs text-muted-foreground">2024-04-01 18:30:10</td>
+            <td><code class="text-primary font-medium">#rid_9D12F</code></td>
+            <td><code class="text-silver">/v1/verify/nin</code></td>
+            <td class="font-semibold text-xs">POST</td>
+            <td><span class="badge badge-success">200 OK</span></td>
+            <td class="font-semibold text-right">100.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination mt-4 flex justify-between items-center">
+       <div class="text-slate small">Showing 1-4 of 1,240 requests</div>
+       <div class="flex gap-2">
+          <button class="btn btn-small" disabled><i class="ph-bold ph-caret-left"></i> Prev</button>
+          <button class="btn btn-small">Next <i class="ph-bold ph-caret-right"></i></button>
+       </div>
+    </div>
+  </div>
+</div>

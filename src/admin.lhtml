@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ninja Admin | Management Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('ninja-theme') || 'dark';
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/index.css?v=7">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+<div id="app" class="app-layout">
+  <embed type="ham/partial" src="admin-sidebar.phtml" />
+  
+  <div class="main-wrapper">
+    <embed type="ham/partial" src="header.phtml" />
+    
+    <main class="main-content">
+      <div class="container px-6">
+        <embed type="ham/page"/>
+      </div>
+    </main>
+
+    <embed type="ham/partial" src="footer.phtml" />
+  </div>
+</div>
+
+<script src="/assets/js/index.js?v=7" defer></script>
+</body>
+</html>

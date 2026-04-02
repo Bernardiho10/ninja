@@ -1,0 +1,75 @@
+<div class="page" data-ham-page-config='{"layout": "../default.lhtml"}'>
+  <div class="page-header">
+    <h1 class="page-title">Wallet</h1>
+    <p class="page-subtitle">Manage your funds and transactions.</p>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="card card-glossy stat-card">
+      <div class="stat-header flex justify-between items-center mb-2">
+        <h3 class="stat-title font-medium"><i class="ph-duotone ph-wallet"></i> Available Balance</h3>
+        <span class="badge badge-success">Active</span>
+      </div>
+      <div class="stat-value font-bold">₦ 250,500.00</div>
+    </div>
+    
+    <div class="card card-glossy stat-card">
+      <div class="stat-header mb-2">
+        <h3 class="stat-title font-medium"><i class="ph-duotone ph-chart-line-up"></i> Total Spent</h3>
+      </div>
+      <div class="stat-value font-bold">₦ 1,420,000.00</div>
+    </div>
+  </div>
+
+  <div class="card card-glossy mt-8">
+    <h3 class="font-semibold text-lg mb-1">Fund Your Account</h3>
+    <p class="text-muted-foreground text-sm mb-6">Top up your balance instantly using Paystack.</p>
+    <form id="fund-form" class="max-w-md">
+      <div class="form-group">
+        <label for="amount" class="text-sm font-medium">Amount (NGN)</label>
+        <input type="number" id="amount" class="form-control mt-1" placeholder="Minimum ₦ 1,000.00" min="1000" step="100" required>
+      </div>
+      <button type="submit" class="btn btn-primary shadow-sm">
+        <i class="ph-duotone ph-lightning"></i> Pay with Paystack
+      </button>
+    </form>
+  </div>
+
+  <div class="mt-8">
+    <div class="card card-glossy">
+      <h3 class="font-semibold text-lg mb-4">Recent Top-ups</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Reference</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+            <tr class="filter-row">
+              <th><input type="date" class="column-filter" data-column="0"></th>
+              <th><input type="text" class="column-filter" data-column="1" placeholder="Ref..."></th>
+              <th><input type="number" class="column-filter" data-column="2" placeholder="0.00"></th>
+              <th><input type="text" class="column-filter" data-column="3" placeholder="Status..."></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-xs text-muted-foreground">2024-04-01</td>
+              <td><code class="text-primary">T89240192A0</code></td>
+              <td class="font-semibold">₦ 50,000.00</td>
+              <td><span class="badge badge-success">Successful</span></td>
+            </tr>
+            <tr>
+              <td class="text-xs text-muted-foreground">2024-03-15</td>
+              <td><code class="text-primary">T89240182C9</code></td>
+              <td class="font-semibold">₦ 100,000.00</td>
+              <td><span class="badge badge-success">Successful</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

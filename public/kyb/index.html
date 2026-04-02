@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ninja | Professional API Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('ninja-theme') || 'dark';
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/index.css?v=6"/>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+<div id="app" class="app-layout">
+  <aside id="sidebar" class="sidebar kyb-pending">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="logo-box">N</div>
+      <span class="logo-text">NINJA</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <!-- Desktop Toggle -->
+      <button id="sidebar-toggle" class="collapse-toggle desktop-only" title="Toggle Sidebar">
+        <i class="ph-bold ph-caret-left"></i>
+      </button>
+      <!-- Close button for mobile -->
+      <button id="sidebar-close" class="btn-icon mobile-only" title="Close Menu">
+        <i class="ph-duotone ph-x"></i>
+      </button>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Main Menu</div>
+    
+    <a href="/" class="nav-item active" id="nav-home">
+      <i class="ph-duotone ph-house-line"></i>
+      <span>Dashboard</span>
+    </a>
+    
+    <a href="/api/keys/" class="nav-item" id="nav-keys">
+      <i class="ph-duotone ph-key"></i>
+      <span>API Keys</span>
+    </a>
+    
+    <a href="/wallet/" class="nav-item" id="nav-wallet">
+      <i class="ph-duotone ph-wallet"></i>
+      <span>Wallet</span>
+    </a>
+    
+    <a href="/kyb/" class="nav-item" id="nav-kyb">
+      <i class="ph-duotone ph-shield-check"></i>
+      <span>KYB Verification</span>
+    </a>
+    
+    <a href="/logs/" class="nav-item" id="nav-logs">
+      <i class="ph-duotone ph-terminal-window"></i>
+      <span>API Logs</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="https://wa.me/2349000000000" target="_blank" class="nav-item support-btn" style="color: #25D366;">
+      <i class="ph-fill ph-whatsapp-logo"></i>
+      <span>WhatsApp Support</span>
+    </a>
+    <a href="/auth/login.html" class="nav-item text-danger">
+      <i class="ph-duotone ph-sign-out"></i>
+      <span>Logout</span>
+    </a>
+    <div class="sidebar-footer-info">
+      <div class="sidebar-footer-links">
+        <a href="/support">Support</a>
+        <span class="footer-dot">·</span>
+        <a href="/terms">Terms</a>
+        <span class="footer-dot">·</span>
+        <a href="/privacy">Privacy</a>
+      </div>
+      <p class="sidebar-footer-copy">© 2024 Ninja. All Rights Reserved.</p>
+      <p class="sidebar-footer-built">Built by <a href="https://www.bougroup.org/" target="_blank" rel="noopener noreferrer">BOU</a></p>
+    </div>
+  </div>
+</aside>
+
+<!-- Backdrop for mobile -->
+<div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>
+  
+  <div class="main-wrapper">
+    <header class="header">
+  <div class="header-container">
+    <div class="header-left">
+      <!-- Mobile hamburger toggle -->
+      <button id="mobile-menu-toggle" class="btn-icon mobile-only" title="Menu">
+        <i class="ph-duotone ph-list text-lg"></i>
+      </button>
+      
+      <!-- Mobile Logo -->
+      <a href="/" class="header-logo mobile-only">
+        <div class="logo-box">N</div>
+        <span class="logo-text">NINJA</span>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="btn-icon" title="Toggle Theme">
+        <i class="ph-duotone ph-moon text-lg dark-hidden"></i>
+        <i class="ph-duotone ph-sun text-lg light-hidden"></i>
+      </button>
+
+      <div class="user-profile">
+        <div class="user-info desktop-only">
+          <span class="user-name">Bernardiho</span>
+          <span class="user-role">Admin Account</span>
+        </div>
+        <div class="user-avatar-circle">BH</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+    
+    <main class="main-content">
+      <div class="container">
+        <div class="page-container">
+  <div class="page-header">
+    <h1 class="page-title">KYB Verification</h1>
+    <p class="page-subtitle">Complete your &#34;Know Your Business&#34; to unlock higher API limits.</p>
+  </div>
+
+  <div id="kyb-status-banner" class="kyb-status-banner flex items-center gap-4 mb-6 p-4 rounded-lg bg-destructive/10 border border-destructive/20">
+    <div id="kyb-status-badge" class="badge badge-error">Pending Verification</div>
+    <p id="kyb-status-text" class="text-sm font-medium text-destructive">Your business documents are required for full account activation.</p>
+  </div>
+
+  <div class="card card-glossy max-w-2xl">
+    <div class="mb-6">
+      <h3 class="font-semibold text-xl mb-1">Business Verification (KYB)</h3>
+      <p class="text-muted-foreground text-sm">Please provide your business details to unlock higher transaction limits.
+      </p>
+    </div>
+
+    <form id="kyb-form" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="form-group">
+          <label for="biz-name" class="text-sm font-medium">Business Name</label>
+          <input type="text" id="biz-name" class="form-control mt-1" placeholder="e.g. Acme Corp" required=""/>
+        </div>
+        <div class="form-group">
+          <label for="biz-type" class="text-sm font-medium">Business Type</label>
+          <select id="biz-type" class="form-control mt-1" required="">
+            <option value="">Select Type...</option>
+            <option value="sole">Sole Proprietorship</option>
+            <option value="ltd">Limited Liability Company (LTD)</option>
+            <option value="plc">Public Limited Company (PLC)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-num" class="text-sm font-medium">Registration Number (RC/BN)</label>
+        <input type="text" id="reg-num" class="form-control mt-1" placeholder="e.g. RC1234567" required=""/>
+      </div>
+
+      <div class="form-group">
+        <label for="biz-address" class="text-sm font-medium">Business Address</label>
+        <textarea id="biz-address" class="form-control mt-1" rows="3" placeholder="Full legal address..." required=""></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="text-sm font-medium mb-2 block">Upload Certificate of Incorporation</label>
+        <div class="upload-dropzone">
+          <i class="ph-duotone ph-cloud-arrow-up"></i>
+          <p class="upload-title">Click to upload or drag and drop</p>
+          <p class="upload-hint">PDF, PNG, JPG (max. 10MB)</p>
+          <input type="file" accept=".pdf,.png,.jpg"/>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 pt-2">
+        <button type="submit" class="btn btn-primary shadow-sm flex-1">
+          Submit for Verification
+        </button>
+        <button type="button" class="btn btn-secondary shadow-sm">
+          Save Draft
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+      </div>
+    </main>
+
+    <footer class="footer">
+  <div class="container flex justify-between items-center column-mobile">
+    <div class="footer-brand">
+      <p>© 2024 Ninja. All Rights Reserved.</p>
+    </div>
+    <div class="footer-links">
+      <ul class="flex gap-4">
+        <li><a href="/support">Support</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="footer-signature">
+      <p style="color: #10A500;">Built by <a href="https://www.bougroup.org/technology.html" target="_blank" rel="noopener noreferrer">BOU</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bottom Navigation for Mobile -->
+<div class="bottom-nav-container">
+  <nav class="bottom-nav">
+    <ul class="flex justify-between w-full">
+      <li><a href="/"><i class="ph-duotone ph-house-line"></i><span>Home</span></a></li>
+      <li><a href="/wallet/"><i class="ph-duotone ph-wallet"></i><span>Wallet</span></a></li>
+      <li><a href="/api/keys/"><i class="ph-duotone ph-key"></i><span>Keys</span></a></li>
+      <li><a href="/logs/"><i class="ph-duotone ph-terminal-window"></i><span>Logs</span></a></li>
+      <li><a href="/kyb/"><i class="ph-duotone ph-shield-check"></i><span>KYB</span></a></li>
+    </ul>
+  </nav>
+</div>
+  </div>
+</div>
+
+<script src="/assets/js/index.js?v=6" defer=""></script>
+
+
+</body></html>
